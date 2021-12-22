@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -27,24 +29,38 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Padding(
         padding: EdgeInsets.all(20),
+        child: FutureBuilder(builder:(context,spndata){
+          var data =json.decode(spndata.data.toString());
+          return ListView.separated(
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                return MyBox(data[index]["title"],data[index]["subtitle"],data[index]["image_url"]);
+              },
+              separatorBuilder: (context, index) {
+                return Container(
+                  height: 0,
+                );
+              },
+              itemCount: data.length);
+        },future: DefaultAssetBundle.of(context).loadString("assets/data.json")),
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: ListView(
-          children: <Widget>[
-            MyBox("What is Computer?","Computer is things to calculate and for others works","https://tenfei01.cfp.cn/creative/vcg/800/new/VCG211229523788.jpg"),
-            SizedBox(
-              height: 15,
-            ),
-            MyBox("What is Flutter?","Flutter is a tool to create mobile Application","https://alifei02.cfp.cn/creative/vcg/800/new/VCG211343122833.jpg"),
-            SizedBox(
-              height: 15,
-            ),
-            MyBox("What is Dart?","Dart is Language used in Flutter","https://tenfei01.cfp.cn/creative/vcg/800/new/VCG211237565991.jpg"),
-            SizedBox(
-              height: 15,
-            ),
-          ],
-        ),
+        // child: ListView(
+        //   children: <Widget>[
+        //     MyBox("What is Computer?","Computer is things to calculate and for others works","https://tenfei01.cfp.cn/creative/vcg/800/new/VCG211229523788.jpg"),
+        //     SizedBox(
+        //       height: 15,
+        //     ),
+        //     MyBox("What is Flutter?","Flutter is a tool to create mobile Application","https://alifei02.cfp.cn/creative/vcg/800/new/VCG211343122833.jpg"),
+        //     SizedBox(
+        //       height: 15,
+        //     ),
+        //     MyBox("What is Dart?","Dart is Language used in Flutter","https://tenfei01.cfp.cn/creative/vcg/800/new/VCG211237565991.jpg"),
+        //     SizedBox(
+        //       height: 15,
+        //     ),
+        //   ],
+        // ),
       ),
     );
   }
@@ -52,6 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget MyBox(String title, String content, String imageUrl) {
     return Container(
       height: 150,
+      margin: EdgeInsets.only(top: 20),
       padding: EdgeInsets.only(left: 20,top: 20,right: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
