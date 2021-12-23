@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'DetailsPage.dart';
 
 class MyHomePage extends StatefulWidget {
-  final String title = "Computer Knowledge";
+  final String title = "My Friends";
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -22,10 +22,14 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+      appBar:  AppBar(
+        elevation: 0,
+        backgroundColor: Colors.blueGrey,
+        title: Text(
+            "Computer",
+            overflow: TextOverflow.ellipsis
+        ),
+        centerTitle: true,
       ),
       body: Padding(
         padding: EdgeInsets.all(20),
@@ -34,38 +38,20 @@ class _MyHomePageState extends State<MyHomePage> {
           return ListView.separated(
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return MyBox(data[index]["title"],data[index]["subtitle"],data[index]["image_url"]);
+                return MyBox(data[index]["title"],data[index]["subtitle"],data[index]["image_url"],data[index]["detail"]);
               },
               separatorBuilder: (context, index) {
-                return Container(
-                  height: 0,
-                );
+                return Divider();
               },
-              itemCount: data.length);
+              itemCount: null==data?0:data.length);
         },future: DefaultAssetBundle.of(context).loadString("assets/data.json")),
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        // child: ListView(
-        //   children: <Widget>[
-        //     MyBox("What is Computer?","Computer is things to calculate and for others works","https://tenfei01.cfp.cn/creative/vcg/800/new/VCG211229523788.jpg"),
-        //     SizedBox(
-        //       height: 15,
-        //     ),
-        //     MyBox("What is Flutter?","Flutter is a tool to create mobile Application","https://alifei02.cfp.cn/creative/vcg/800/new/VCG211343122833.jpg"),
-        //     SizedBox(
-        //       height: 15,
-        //     ),
-        //     MyBox("What is Dart?","Dart is Language used in Flutter","https://tenfei01.cfp.cn/creative/vcg/800/new/VCG211237565991.jpg"),
-        //     SizedBox(
-        //       height: 15,
-        //     ),
-        //   ],
-        // ),
       ),
     );
   }
 
-  Widget MyBox(String title, String content, String imageUrl) {
+  Widget MyBox(String title, String content, String imageUrl,String detail) {
     return Container(
       height: 150,
       margin: EdgeInsets.only(top: 20),
@@ -91,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DetailsPage(),
+                  builder: (context) => DetailsPage(title,  content,  imageUrl, detail),
                 ));
           }, child: Text("read more")),
         ],

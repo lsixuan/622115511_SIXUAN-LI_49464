@@ -2,7 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DetailsPage extends StatefulWidget {
-  final String title = "Computer Knowledge";
+  String title;
+  String content;
+  String imageUrl;
+  String detail;
+
+  DetailsPage(this.title, this.content, this.imageUrl, this.detail);
 
   @override
   _DetailsPageState createState() => _DetailsPageState();
@@ -29,11 +34,13 @@ class _DetailsPageState extends State<DetailsPage> {
         // in the middle of the parent.
         child: ListView(
           children: <Widget>[
-         Text("Details Explanation")
+            Text(widget.title),
+            Text(widget.content),
+            Image.network(widget.imageUrl),
+            Text(widget.detail)
           ],
         ),
       ),
     );
   }
-
 }

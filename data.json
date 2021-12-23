@@ -3,7 +3,7 @@
     "title":"What is Computer?",
     "subtitle":"Computer is things to calculate and for others works",
     "image_url":"https://tenfei01.cfp.cn/creative/vcg/800/new/VCG211229523788.jpg",
-    "new_case_excludeabroad":2446,
+    "detail":"Computers, commonly known as computers, are modern intelligent electronic devices that can run according to programs and process massive data automatically and at high speed. It can not only carry out numerical calculation, but also carry out logical calculation, but also has the function of storage and memory. Computers can be divided into supercomputers, industrial control computers, network computers, personal computers and embedded computers. It is mainly composed of hardware system and software system.",
     "total_case_excludeabroad":2189242,
     "new_death":32,
     "total_death":21440,
@@ -18,7 +18,7 @@
   ,
     "image_url":"https://alifei02.cfp.cn/creative/vcg/800/new/VCG211343122833.jpg"
   ,
-    "new_case_excludeabroad":2446,
+    "detail":"Fluent is Google's mobile cross platform UI framework, which can quickly build high-quality native user interfaces on IOS and Android. Fluent can work with existing code. Throughout the world, flutter is being used by more and more developers and organizations, and flutter is completely free and open source. In short, fluent is a mobile application SDK, including frameworks, controls and some tools. It can build Android and IOS applications with a set of code at the same time, and its performance can reach the same performance as that of native applications.",
     "total_case_excludeabroad":2189242,
     "new_death":32,
     "total_death":21440,
@@ -33,7 +33,7 @@
   ,
     "image_url":"https://tenfei01.cfp.cn/creative/vcg/800/new/VCG211237565991.jpg"
   ,
-    "new_case_excludeabroad":2446,
+    "detail":"Dart is a computer programming language developed by Google. It was later recognized as a standard by ECMA. It is used in the development of web, server, mobile application and Internet of things. Like JavaScript, dart is an object-oriented language, but it uses class based programming.",
     "total_case_excludeabroad":2189242,
     "new_death":32,
     "total_death":21440,
